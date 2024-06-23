@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: cleverbank
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      #POSTGRES_INITDB_ARGS: "--data-checksums --reset -U isswmq -d bank_db"
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./src/main/resources/sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  pgdata:

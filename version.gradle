@@ -1,0 +1,8 @@
+ext {
+    versions = [
+            'postgresql': '42.6.0',
+            'aspectjrt': '1.9.7',
+            'aspectjweaver': '1.9.7',
+            'lombok': '1.18.24'
+    ]
+}
